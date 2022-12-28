@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Yummo';
+  src: url('static_files/fonts/Yummo_Thin.otf');
+}
+
+:root {
+  --logo-gold: #cbb26a;
+  --gold-light: #e5d9b6;
+  --gold: #d8c690;
+  --gold-dark: #be9e44;
+  --black-light: #1a1a1a;
+  --black: #000000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6;
+}
+
+body {
+  font-family: 'Yummo', cursive;
+  font-size: 1.6rem;
+  color: var(--gold-light);
+  background-color: var(--black);
+  /* background-image: url('images/background.jpg'); */
+  /* background-attachment: fixed; */
+  /* background-size: cover; */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--black);
+}
+
+.logo {
+  content: url('static_files/images/logo.png');
+  width: auto;
+  height: auto;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: var(--black-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background: inherit;
+  font: inherit;
+  border: none;
+  color: inherit;
+  font-size: large;
+  padding: 5px 30px;
+  margin: 0px 50px;
+}
+
+button:hover {
+  background-color: var(--black-light);
+}
+
+@media (max-width: 500px) {
+  .logo {
+    width: 300px;
+    height: auto;
+  }
+  button {
+    padding: 5px 10px;
+    margin: 0px 10px;
+  }
+}
