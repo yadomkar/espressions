@@ -37,6 +37,28 @@ function createMain() {
   main.classList.add('main');
   main.setAttribute('id', 'main');
 
+  const title = document.createElement('p');
+  title.classList.add('title');
+  title.textContent = 'Espressions';
+
+  const quote = document.createElement('h1');
+  quote.classList.add('quote');
+  quote.textContent = 'Coffee, then the world.';
+
+  const timingContainer = document.createElement('div');
+  timingContainer.classList.add('timing-container');
+
+  const days = document.createElement('p');
+  days.classList.add('days');
+  days.textContent = 'We are open 7 days a week';
+
+  const timing = document.createElement('p');
+  timing.classList.add('timing');
+  timing.textContent = '8AM - 9PM';
+
+  timingContainer.append(days, timing);
+  main.append(title, quote, timingContainer);
+
   return main;
 }
 
@@ -44,10 +66,10 @@ function createFooter() {
   const footer = document.createElement('footer');
   footer.classList.add('footer');
 
-  const copyright = document.createElement('p');
-  copyright.textContent = 'Omkar';
+  // const copyright = document.createElement('p');
+  // copyright.textContent = 'Omkar';
 
-  footer.appendChild(copyright);
+  footer.append(createNav());
 
   return footer;
 }
