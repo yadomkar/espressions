@@ -1,3 +1,3 @@
-import initialPageLoad from './website';
+import loadInitiatlPage from './website';
 
-initialPageLoad();
+loadInitiatlPage();

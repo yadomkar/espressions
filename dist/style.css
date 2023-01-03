@@ -41,9 +41,9 @@ body {
   font-family: 'Yummo', cursive;
   font-size: 1.6rem;
   color: var(--logo-gold);
-  /* background-color: var(--black-light); */
+  background-color: var(--black);
 
-  background-image: url('static_files/images/background_bw.jpg');
+  /* background-image: url('static_files/images/background_bw.jpg'); */
   /* background-position: center; Center the image */
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,7 +61,7 @@ header {
   position: fixed;
   /* width: 200px; */
   height: 100%;
-  width: 15vw;
+  width: max(15vw, 15vh);
   max-width: 250px;
   background-color: var(--black);
   /* opacity: 0.9; */
@@ -69,6 +69,7 @@ header {
   box-shadow: var(--shadow);
   overflow: scroll;
   z-index: 1;
+  gap: 2vw;
 }
 
 .logo {
@@ -81,22 +82,44 @@ header {
 }
 
 main {
-  background-color: var(--transparent-bg);
-  /* background-color: var(--transparent-black-bg); */
+  /* height: 100%; */
+  /* width: 70%; */
+  /* position: fixed;
+  left: 500px; */
+}
 
-  /* opacity: 0.5; */
-  height: 100%;
+.about {
+  position: fixed;
+  /* right: 0; */
+  left: max(16vw, 16vh);
+  width: 60%;
+  padding: 10vh 10vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.about p {
+  /* color: white; */
+}
+
+.home {
+  /* background-color: var(--transparent-black-bg); */
+  background-color: var(--transparent-bg);
+  box-shadow: var(--shadow);
   width: 60%;
   position: fixed;
   right: 0;
-  box-shadow: var(--shadow);
+  /* opacity: 0.5; */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  padding: 10vh;
+  /* padding: 10vh; */
   color: white;
   justify-content: center;
+  gap: min(2vw, 2vh);
   /* align-content: center; */
   /* text-align: center; */
 }
@@ -105,15 +128,15 @@ main {
   /* text-align: left; */
   /* width: 50%; */
   /* align-self: left; */
-  padding: 0.5vw 8vw;
+  padding: 0vw 8vw;
   font-weight: 600;
-  font-size: 2vw;
+  font-size: min(3vw, 4vh);
   color: var(--gold-light);
   text-shadow: var(--shadow);
 }
 
 .quote {
-  font-size: 11vw;
+  font-size: min(11vw, 20vh);
   /* font-size: 22vh; */
   font-family: var(--dm);
   font-weight: 400;
@@ -136,23 +159,23 @@ main {
   /* justify-content: space-around; */
   /* align-content: center; */
   align-items: center;
-  padding: 1vw 8vw;
+  padding: 0vw 8vw;
   text-shadow: var(--text-shadow);
   gap: 2vw;
 }
 
 .days {
-  /* font-family: var(--Montserrat); */
-  font-size: 2vw;
+  /* font-family: var(); */
+  font-size: min(2vw, 4vh);
   /* text-transform: capitalize; */
-  font-weight: 500;
+  /* font-weight: 500; */
   /* word-wrap: break-word; */
   /* padding: 0vw 2vw; */
-  white-space: pre;
+  white-space: pre-line;
 }
 
 .timing {
-  font-size: 3vw;
+  font-size: min(3vw, 6vh);
   font-family: var(--dm);
   white-space: nowrap;
 }
@@ -179,6 +202,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 200px;
+  gap: 1vw;
 }
 
 button {
@@ -186,18 +210,24 @@ button {
   font: inherit;
   border: none;
   color: inherit;
-  font-size: 20px;
-  padding: 5px 30px;
-  margin: 0px 50px;
-  text-transform: uppercase;
+  font-size: max(1.2vw, 2vh);
+  padding: 0.2vw 1.2vw;
+  /* margin: 0px 50px; */
+  /* text-transform: uppercase; */
   font-family: var(--dm);
   border-radius: 30px;
+  border: 2px solid var(--black);
   /* text-shadow: 2px; */
   /* opacity: 1; */
+  white-space: nowrap;
 }
 
 button:hover {
   background-color: var(--black-light);
+}
+
+.button-nav.active {
+  border: 2px solid var(--logo-gold);
 }
 
 @media (max-width: 500px) {
@@ -225,7 +255,7 @@ button:hover {
     height: auto;
     align-self: flex-end;
   }
-  main {
+  .home {
     /* position: absolute; */
     top: 30%;
     left: 15%;
@@ -257,5 +287,15 @@ button:hover {
   footer {
     display: block;
     text-align: center;
+  }
+  .about {
+    position: static;
+    /* right: 0; */
+    /* left: max(16vw, 16vh); */
+    width: 100%;
+    padding: 30vh 10vw;
+
+    display: flex;
+    flex-direction: column;
   }
 }

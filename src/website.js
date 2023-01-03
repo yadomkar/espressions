@@ -1,3 +1,6 @@
+import loadHome from './home';
+import loadAbout from './about';
+
 function createHeader() {
   const header = document.createElement('header');
   header.classList.add('header');
@@ -16,20 +19,45 @@ function createNav() {
   nav.classList.add('nav');
 
   const homeButton = document.createElement('button');
-  homeButton.classList.add('button');
+  homeButton.classList.add('button-nav', 'active');
   homeButton.textContent = 'Home';
+  homeButton.addEventListener('click', (e) => {
+    if (e.target.classList.contains('active')) return;
+    resetNav(homeButton);
+    loadHome();
+  });
 
   const menuButton = document.createElement('button');
-  menuButton.classList.add('button');
-  menuButton.textContent = 'Menu';
+  menuButton.classList.add('button-nav');
+  menuButton.textContent = 'Carte';
+  menuButton.addEventListener('click', (e) => {
+    if (e.target.classList.contains('active')) return;
+    resetNav(menuButton);
+    // createMenu();
+  });
 
   const aboutButton = document.createElement('button');
-  aboutButton.classList.add('button');
-  aboutButton.textContent = 'About';
+  aboutButton.classList.add('button-nav');
+  aboutButton.textContent = 'Our Story';
+  aboutButton.addEventListener('click', (e) => {
+    if (e.target.classList.contains('active')) return;
+    resetNav(aboutButton);
+    loadAbout();
+  });
 
   nav.append(homeButton, menuButton, aboutButton);
 
   return nav;
+}
+
+function resetNav(clickedButton) {
+  const navButtons = document.querySelectorAll('.button-nav');
+
+  navButtons.forEach((button) => {
+    button.classList.remove('active');
+  });
+
+  clickedButton.classList.add('active');
 }
 
 function createMain() {
@@ -37,27 +65,7 @@ function createMain() {
   main.classList.add('main');
   main.setAttribute('id', 'main');
 
-  const title = document.createElement('p');
-  title.classList.add('title');
-  title.textContent = 'Espressions';
-
-  const quote = document.createElement('h1');
-  quote.classList.add('quote');
-  quote.textContent = 'Coffee, then the world.';
-
-  const timingContainer = document.createElement('div');
-  timingContainer.classList.add('timing-container');
-
-  const days = document.createElement('p');
-  days.classList.add('days');
-  days.textContent = 'We are open 7 days a week';
-
-  const timing = document.createElement('p');
-  timing.classList.add('timing');
-  timing.textContent = '8AM - 9PM';
-
-  timingContainer.append(days, timing);
-  main.append(title, quote, timingContainer);
+  // loadHome();
 
   return main;
 }
@@ -74,10 +82,12 @@ function createFooter() {
   return footer;
 }
 
-export default function initialPageLoad() {
+export default function loadInitiatlPage() {
   const content = document.querySelector('#content');
 
   content.appendChild(createHeader());
   content.appendChild(createMain());
   content.appendChild(createFooter());
+
+  loadHome();
 }
