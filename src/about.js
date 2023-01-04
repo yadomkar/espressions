@@ -1,3 +1,33 @@
+function createAboutTop() {
+  const aboutTop = document.createElement('div');
+  aboutTop.classList.add('about-top');
+
+  const pageTitle = document.createElement('h1');
+  pageTitle.classList.add('page-title');
+  pageTitle.textContent = 'A few words \n about us';
+
+  const titleSeparator = document.createElement('div');
+  titleSeparator.classList.add('title-separator');
+
+  const timingContainer = document.createElement('div');
+  timingContainer.classList.add('timing-container');
+
+  const days = document.createElement('p');
+  days.classList.add('days');
+  days.textContent = 'We are open 7 \n days a week';
+
+  const timing = document.createElement('p');
+  timing.classList.add('timing');
+  timing.textContent = '8AM - 9PM';
+
+  timingContainer.append(days, timing);
+  titleSeparator.appendChild(timingContainer);
+
+  aboutTop.append(pageTitle, titleSeparator);
+
+  return aboutTop;
+}
+
 function createAbout() {
   const aboutCafeText =
     `Welcome to the Espressions! We are a locally-owned coffee bar located in the trendy neighborhood of Cooke Town, dedicated to serving the highest quality coffee and espresso drinks in a modern and energetic atmosphere.
@@ -23,10 +53,13 @@ function createAbout() {
 }
 
 export default function loadAbout() {
-  const body = document.getElementsByTagName('body');
+  // const body = document.getElementsByTagName('body');
   // body[0].style.backgroundImage = `url('static_files/images/about_bg.jpg')`;
-  body[0].style.backgroundImage = 'none';
   const main = document.querySelector('#main');
+  main.style.backgroundImage = 'none';
   main.textContent = '';
-  main.appendChild(createAbout());
+  const emptyDiv = document.createElement('div');
+  emptyDiv.classList.add('empty-div');
+
+  main.append(emptyDiv, createAboutTop(), createAbout());
 }

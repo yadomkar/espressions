@@ -29,9 +29,8 @@ function createHome() {
 }
 
 export default function loadHome() {
-  const body = document.getElementsByTagName('body');
-  body[0].style.backgroundImage = `url('static_files/images/background_bw.jpg')`;
   const main = document.querySelector('#main');
   main.textContent = '';
+  main.style.backgroundImage = `url('static_files/images/background_bw.jpg')`;
   main.appendChild(createHome());
 }
