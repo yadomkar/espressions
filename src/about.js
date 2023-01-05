@@ -52,6 +52,8 @@ function createAbout() {
   return about;
 }
 
+function createAboutBottom() {}
+
 export default function loadAbout() {
   // const body = document.getElementsByTagName('body');
   // body[0].style.backgroundImage = `url('static_files/images/about_bg.jpg')`;

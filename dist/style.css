@@ -44,7 +44,7 @@ html {
 
 body {
   font-family: 'Yummo', cursive;
-  font-size: 1.6rem;
+  font-size: 2vw;
   color: var(--logo-gold);
   background-color: var(--black);
 
@@ -100,30 +100,38 @@ main {
 }
 
 .about {
-  /* position: fixed; */
+  /* position: static; */
   /* right: 0; */
   left: max(16vw, 16vh);
-  width: 60%;
+  /* width: 60%; */
   padding: 10vh 10vw;
-
+  scroll-padding-bottom: 100vh;
   display: flex;
   flex-direction: column;
+  text-align: justify;
+  align-items: flex-start;
+  gap: 2vh;
+  font-size: min(4vw, 3vh);
 
-  height: 90%;
+  /* height: 70%; */
   top: 0;
+
+  margin-bottom: 5vh;
 }
 
 .about p {
   /* color: white; */
+  align-self: center;
+  width: 60%;
 }
 
 .about-top {
   background-image: url(static_files/images/about_bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: 0vw -60vh;
-  height: 30vh;
+  /* background-attachment: fixed; */
+  background-position: 0vw -15vh;
+  height: min(30vh, 30vw);
   display: flex;
   /* flex-direction: column; */
   justify-content: center;
@@ -137,9 +145,9 @@ main {
   font-family: var(--dm);
   color: white;
   font-weight: 400;
-  font-size: min(4vw, 8vh);
+  font-size: min(7vw, 8vh);
   white-space: pre-line;
-  line-height: min(4vw, 8vh);
+  line-height: min(6vw, 7vh);
   align-self: center;
 }
 
@@ -153,6 +161,11 @@ main {
 
 .title-separator .timing-container {
   padding: 0vw 2vw;
+  flex-direction: column;
+  /* font-size: min(3vw, 4vh); */
+  /* justify-content: center;
+  align-items: center;
+  align-content: center; */
 }
 
 .home {
@@ -171,7 +184,7 @@ main {
   /* padding: 10vh; */
   color: white;
   justify-content: center;
-  gap: min(2vw, 2vh);
+  gap: min(2vw, 1vh);
   /* align-content: center; */
   /* text-align: center; */
 }
@@ -182,13 +195,13 @@ main {
   /* align-self: left; */
   padding: 0vw 8vw;
   font-weight: 600;
-  font-size: min(3vw, 4vh);
+  font-size: min(6vw, 4vh);
   color: var(--gold-light);
   text-shadow: var(--shadow);
 }
 
 .quote {
-  font-size: min(11vw, 20vh);
+  font-size: min(15vw, 20vh);
   /* font-size: 22vh; */
   font-family: var(--dm);
   font-weight: 400;
@@ -199,7 +212,7 @@ main {
   /* margin-top: 2%; */
   /* width: 100%; */
   padding: 0vw 8vw;
-  line-height: 8vw;
+  line-height: min(12vw, 15vh);
   /* content: 'La La Land'; */
   /* opacity: 1; */
 }
@@ -218,7 +231,8 @@ main {
 
 .days {
   /* font-family: var(); */
-  font-size: min(2vw, 4vh);
+  font-size: min(3.5vw, 4vh);
+  line-height: min(3.5vw, 4vh);
   /* text-transform: capitalize; */
   /* font-weight: 500; */
   /* word-wrap: break-word; */
@@ -227,7 +241,8 @@ main {
 }
 
 .timing {
-  font-size: min(3vw, 6vh);
+  font-size: min(3.5vw, 4vh);
+  line-height: min(3.5vw, 4vh);
   font-family: var(--dm);
   white-space: nowrap;
 }
@@ -282,7 +297,7 @@ button:hover {
   border: 2px solid var(--logo-gold);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 450px) {
   main {
     left: 0;
     background-position: -300px center;
@@ -301,12 +316,17 @@ button:hover {
   }
   .about-top {
     position: relative;
-    height: 20vh;
+    /* height: 20vh; */
     width: 100%;
-    background-position: -30vw -10vh;
+    background-position: 0vw -10vh;
     /* align-self: center; */
     /* border-top: 27vh solid transparent; */
     /* top: 27vw; */
+  }
+  .about p {
+    /* color: white; */
+    /* align-self: center; */
+    width: 100%;
   }
   header {
     width: 100%;
@@ -340,9 +360,9 @@ button:hover {
     /* margin: auto; */
   }
   .quote {
-    padding: 20px;
-    font-size: 40px;
-    line-height: 40px;
+    /* padding: 20px; */
+    /* font-size: 40px; */
+    /* line-height: 40px; */
   }
   .logo {
     width: auto;
@@ -351,7 +371,7 @@ button:hover {
     /* align-self: center; */
     border: 1px solid black;
     background-color: #000000;
-    border-radius: 100px;
+    border-radius: 95%;
     box-shadow: var(--shadow);
   }
   button {
@@ -362,15 +382,5 @@ button:hover {
   footer {
     display: block;
     text-align: center;
-  }
-  .about {
-    position: static;
-    /* right: 0; */
-    /* left: max(16vw, 16vh); */
-    width: 100%;
-    /* padding: 30vh 10vw; */
-
-    display: flex;
-    flex-direction: column;
   }
 }
