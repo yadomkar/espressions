@@ -1,5 +1,6 @@
 import loadHome from './home';
 import loadAbout from './about';
+import loadMenu from './menu';
 
 function createHeader() {
   const header = document.createElement('header');
@@ -9,10 +10,17 @@ function createHeader() {
   const logo = document.createElement('img');
   logo.classList.add('logo');
 
-  header.appendChild(logo);
-  header.appendChild(createNav());
+  header.append(logo, createNav(), createAddressInfo());
 
   return header;
+}
+
+function createAddressInfo() {
+  const addressInfo = document.createElement('div');
+  addressInfo.classList.add('address-info');
+  addressInfo.textContent = 'Cooke Town,\nBangalore';
+
+  return addressInfo;
 }
 
 function createNav() {
@@ -34,7 +42,7 @@ function createNav() {
   menuButton.addEventListener('click', (e) => {
     if (e.target.classList.contains('active')) return;
     resetNav(menuButton);
-    // createMenu();
+    loadMenu();
   });
 
   const aboutButton = document.createElement('button');
@@ -66,8 +74,6 @@ function createMain() {
   main.classList.add('main');
   main.setAttribute('id', 'main');
 
-  // loadHome();
-
   return main;
 }
 
@@ -78,7 +84,7 @@ function createFooter() {
   // const copyright = document.createElement('p');
   // copyright.textContent = 'Omkar';
 
-  footer.append(createNav());
+  footer.append(createNav(), createAddressInfo());
 
   return footer;
 }

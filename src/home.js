@@ -1,3 +1,5 @@
+import { createTimingContainer } from './commonElements';
+
 function createHome() {
   const home = document.createElement('div');
   home.classList.add('home');
@@ -11,19 +13,11 @@ function createHome() {
   quote.classList.add('quote');
   quote.textContent = 'Coffee, then the world.';
 
-  const timingContainer = document.createElement('div');
-  timingContainer.classList.add('timing-container');
-
-  const days = document.createElement('p');
-  days.classList.add('days');
-  days.textContent = 'We are open 7 \n days a week';
-
-  const timing = document.createElement('p');
-  timing.classList.add('timing');
-  timing.textContent = '8AM - 9PM';
-
-  timingContainer.append(days, timing);
-  home.append(title, quote, timingContainer);
+  home.append(
+    title,
+    quote,
+    createTimingContainer('We are open 7 \n days a week')
+  );
 
   return home;
 }

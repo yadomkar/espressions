@@ -1,32 +1,7 @@
-function createAboutTop() {
-  const aboutTop = document.createElement('div');
-  aboutTop.classList.add('about-top');
-
-  const pageTitle = document.createElement('h1');
-  pageTitle.classList.add('page-title');
-  pageTitle.textContent = 'A few words \n about us';
-
-  const titleSeparator = document.createElement('div');
-  titleSeparator.classList.add('title-separator');
-
-  const timingContainer = document.createElement('div');
-  timingContainer.classList.add('timing-container');
-
-  const days = document.createElement('p');
-  days.classList.add('days');
-  days.textContent = 'We are open 7 \n days a week';
-
-  const timing = document.createElement('p');
-  timing.classList.add('timing');
-  timing.textContent = '8AM - 9PM';
-
-  timingContainer.append(days, timing);
-  titleSeparator.appendChild(timingContainer);
-
-  aboutTop.append(pageTitle, titleSeparator);
-
-  return aboutTop;
-}
+import {
+  createPageTitleContainer,
+  createTimingContainer,
+} from './commonElements';
 
 function createAbout() {
   const aboutCafeText =
@@ -52,7 +27,7 @@ function createAbout() {
   return about;
 }
 
-function createAboutBottom() {}
+// function createAboutBottom() {}
 
 export default function loadAbout() {
   // const body = document.getElementsByTagName('body');
@@ -63,5 +38,15 @@ export default function loadAbout() {
   const emptyDiv = document.createElement('div');
   emptyDiv.classList.add('empty-div');
 
-  main.append(emptyDiv, createAboutTop(), createAbout());
+  const pageTitleContainer = createPageTitleContainer(
+    'A few words \n about us'
+  );
+  pageTitleContainer.style.backgroundImage =
+    'url(static_files/images/about_bg.jpg)';
+
+  pageTitleContainer
+    .querySelector('.title-separator')
+    .appendChild(createTimingContainer('We are open \n everyday!'));
+
+  main.append(emptyDiv, pageTitleContainer, createAbout());
 }
